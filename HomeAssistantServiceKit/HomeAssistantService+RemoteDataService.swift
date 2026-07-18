@@ -110,6 +110,7 @@ extension HomeAssistantService: RemoteDataService {
 
         var payload = payload
         payload["timestamp"] = HomeAssistantDateFormatter.string(from: Date())
+        payload["source"] = Self.sourceName
 
         client.post(payload: payload, to: webhookURL) { error in
             if let error = error {

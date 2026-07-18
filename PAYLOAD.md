@@ -1,13 +1,20 @@
-# Loop → Home Assistant payload contract
+# AID app → Home Assistant payload contract
 
 The HomeAssistantService plugin POSTs JSON to the Home Assistant webhook URL
-(`https://<ha>/api/webhook/<id>`). All dates are ISO 8601 with fractional
-seconds, UTC. All glucose values are mg/dL (Home Assistant can convert for
-display). Every key is optional — a payload contains only what changed.
+(`https://<ha>/api/webhook/<id>`). It runs in DIY Loop (as a service plugin)
+and in Trio (statically linked, fed by `HomeAssistantManager`). All dates are
+ISO 8601 with fractional seconds, UTC. All glucose values are mg/dL (Home
+Assistant can convert for display). Every key is optional — a payload contains
+only what changed.
+
+Multiple AID apps push side by side: each app gets its own webhook (one Home
+Assistant config entry per instance), and every payload carries a `source`
+with the sending app's display name.
 
 ```jsonc
 {
   "timestamp": "2026-07-17T18:04:05.123Z",
+  "source": "Loop",                         // or "Trio" — the sending app's display name
 
   // From uploadGlucoseData - oldest first
   "glucose": [
