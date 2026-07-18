@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA000000000000000000B001 /* HomeAssistantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S001 /* HomeAssistantService.swift */; };
+		AA000000000000000000B002 /* HomeAssistantClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S002 /* HomeAssistantClient.swift */; };
+		AA000000000000000000B003 /* HomeAssistantService+RemoteDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S003 /* HomeAssistantService+RemoteDataService.swift */; };
+		AA000000000000000000B004 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S004 /* OSLog.swift */; };
+		AA000000000000000000B005 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S005 /* HKUnit.swift */; };
+		AA000000000000000000B010 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F010 /* LoopKit.framework */; };
+		AA000000000000000000B011 /* HomeAssistantService+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S011 /* HomeAssistantService+UI.swift */; };
+		AA000000000000000000B012 /* HomeAssistantServiceNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S012 /* HomeAssistantServiceNavigationController.swift */; };
+		AA000000000000000000B013 /* HomeAssistantSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S013 /* HomeAssistantSettingsView.swift */; };
+		AA000000000000000000B014 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F010 /* LoopKit.framework */; };
+		AA000000000000000000B015 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F011 /* LoopKitUI.framework */; };
+		AA000000000000000000B016 /* HomeAssistantServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F001 /* HomeAssistantServiceKit.framework */; };
+		AA000000000000000000B021 /* HomeAssistantServiceKitPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S021 /* HomeAssistantServiceKitPlugin.swift */; };
+		AA000000000000000000B022 /* HomeAssistantServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F001 /* HomeAssistantServiceKit.framework */; };
+		AA000000000000000000B023 /* HomeAssistantServiceKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F002 /* HomeAssistantServiceKitUI.framework */; };
+		AA000000000000000000B024 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F011 /* LoopKitUI.framework */; };
+		AA000000000000000000B025 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F010 /* LoopKit.framework */; };
+		AA000000000000000000B026 /* HomeAssistantServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F001 /* HomeAssistantServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000B027 /* HomeAssistantServiceKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F002 /* HomeAssistantServiceKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA000000000000000000PR01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000000000000000000PJ01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000T001;
+			remoteInfo = HomeAssistantServiceKit;
+		};
+		AA000000000000000000PR02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000000000000000000PJ01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000T001;
+			remoteInfo = HomeAssistantServiceKit;
+		};
+		AA000000000000000000PR03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000000000000000000PJ01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000T002;
+			remoteInfo = HomeAssistantServiceKitUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA0000000000000000EMB001 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AA000000000000000000B026 /* HomeAssistantServiceKit.framework in Embed Frameworks */,
+				AA000000000000000000B027 /* HomeAssistantServiceKitUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA000000000000000000F001 /* HomeAssistantServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HomeAssistantServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000F002 /* HomeAssistantServiceKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HomeAssistantServiceKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000F003 /* HomeAssistantServiceKitPlugin.loopplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HomeAssistantServiceKitPlugin.loopplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000F010 /* LoopKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000F011 /* LoopKitUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoopKitUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000S001 /* HomeAssistantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantService.swift; sourceTree = "<group>"; };
+		AA000000000000000000S002 /* HomeAssistantClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantClient.swift; sourceTree = "<group>"; };
+		AA000000000000000000S003 /* HomeAssistantService+RemoteDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeAssistantService+RemoteDataService.swift"; sourceTree = "<group>"; };
+		AA000000000000000000S004 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		AA000000000000000000S005 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
+		AA000000000000000000S011 /* HomeAssistantService+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeAssistantService+UI.swift"; sourceTree = "<group>"; };
+		AA000000000000000000S012 /* HomeAssistantServiceNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantServiceNavigationController.swift; sourceTree = "<group>"; };
+		AA000000000000000000S013 /* HomeAssistantSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantSettingsView.swift; sourceTree = "<group>"; };
+		AA000000000000000000S021 /* HomeAssistantServiceKitPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantServiceKitPlugin.swift; sourceTree = "<group>"; };
+		AA000000000000000000P001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA000000000000000000P002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA000000000000000000P003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000FRW001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B010 /* LoopKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000FRW002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B016 /* HomeAssistantServiceKit.framework in Frameworks */,
+				AA000000000000000000B015 /* LoopKitUI.framework in Frameworks */,
+				AA000000000000000000B014 /* LoopKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000FRW003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B022 /* HomeAssistantServiceKit.framework in Frameworks */,
+				AA000000000000000000B023 /* HomeAssistantServiceKitUI.framework in Frameworks */,
+				AA000000000000000000B024 /* LoopKitUI.framework in Frameworks */,
+				AA000000000000000000B025 /* LoopKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA00000000000000000G0000 = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000G0001 /* HomeAssistantServiceKit */,
+				AA00000000000000000G0002 /* HomeAssistantServiceKitUI */,
+				AA00000000000000000G0003 /* HomeAssistantServiceKitPlugin */,
+				AA00000000000000000G0010 /* Frameworks */,
+				AA00000000000000000G0020 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA00000000000000000G0001 /* HomeAssistantServiceKit */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000S001 /* HomeAssistantService.swift */,
+				AA000000000000000000S002 /* HomeAssistantClient.swift */,
+				AA000000000000000000S003 /* HomeAssistantService+RemoteDataService.swift */,
+				AA000000000000000000S004 /* OSLog.swift */,
+				AA000000000000000000S005 /* HKUnit.swift */,
+				AA000000000000000000P001 /* Info.plist */,
+			);
+			path = HomeAssistantServiceKit;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000G0002 /* HomeAssistantServiceKitUI */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000S011 /* HomeAssistantService+UI.swift */,
+				AA000000000000000000S012 /* HomeAssistantServiceNavigationController.swift */,
+				AA000000000000000000S013 /* HomeAssistantSettingsView.swift */,
+				AA000000000000000000P002 /* Info.plist */,
+			);
+			path = HomeAssistantServiceKitUI;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000G0003 /* HomeAssistantServiceKitPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000S021 /* HomeAssistantServiceKitPlugin.swift */,
+				AA000000000000000000P003 /* Info.plist */,
+			);
+			path = HomeAssistantServiceKitPlugin;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000G0010 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000F010 /* LoopKit.framework */,
+				AA000000000000000000F011 /* LoopKitUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA00000000000000000G0020 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000F001 /* HomeAssistantServiceKit.framework */,
+				AA000000000000000000F002 /* HomeAssistantServiceKitUI.framework */,
+				AA000000000000000000F003 /* HomeAssistantServiceKitPlugin.loopplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA000000000000000000T001 /* HomeAssistantServiceKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000CL0001 /* Build configuration list for PBXNativeTarget "HomeAssistantServiceKit" */;
+			buildPhases = (
+				AA0000000000000000SRC001 /* Sources */,
+				AA0000000000000000FRW001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomeAssistantServiceKit;
+			productName = HomeAssistantServiceKit;
+			productReference = AA000000000000000000F001 /* HomeAssistantServiceKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA000000000000000000T002 /* HomeAssistantServiceKitUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000CL0002 /* Build configuration list for PBXNativeTarget "HomeAssistantServiceKitUI" */;
+			buildPhases = (
+				AA0000000000000000SRC002 /* Sources */,
+				AA0000000000000000FRW002 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA00000000000000000D001 /* PBXTargetDependency */,
+			);
+			name = HomeAssistantServiceKitUI;
+			productName = HomeAssistantServiceKitUI;
+			productReference = AA000000000000000000F002 /* HomeAssistantServiceKitUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA000000000000000000T003 /* HomeAssistantServiceKitPlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000CL0003 /* Build configuration list for PBXNativeTarget "HomeAssistantServiceKitPlugin" */;
+			buildPhases = (
+				AA0000000000000000SRC003 /* Sources */,
+				AA0000000000000000FRW003 /* Frameworks */,
+				AA0000000000000000EMB001 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA00000000000000000D002 /* PBXTargetDependency */,
+				AA00000000000000000D003 /* PBXTargetDependency */,
+			);
+			name = HomeAssistantServiceKitPlugin;
+			productName = HomeAssistantServiceKitPlugin;
+			productReference = AA000000000000000000F003 /* HomeAssistantServiceKitPlugin.loopplugin */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA000000000000000000PJ01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AA000000000000000000T001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AA000000000000000000T002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AA000000000000000000T003 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AA0000000000000000CL0000 /* Build configuration list for PBXProject "HomeAssistantService" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA00000000000000000G0000;
+			productRefGroup = AA00000000000000000G0020 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA000000000000000000T001 /* HomeAssistantServiceKit */,
+				AA000000000000000000T002 /* HomeAssistantServiceKitUI */,
+				AA000000000000000000T003 /* HomeAssistantServiceKitPlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000SRC001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B001 /* HomeAssistantService.swift in Sources */,
+				AA000000000000000000B002 /* HomeAssistantClient.swift in Sources */,
+				AA000000000000000000B003 /* HomeAssistantService+RemoteDataService.swift in Sources */,
+				AA000000000000000000B004 /* OSLog.swift in Sources */,
+				AA000000000000000000B005 /* HKUnit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000SRC002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B011 /* HomeAssistantService+UI.swift in Sources */,
+				AA000000000000000000B012 /* HomeAssistantServiceNavigationController.swift in Sources */,
+				AA000000000000000000B013 /* HomeAssistantSettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000000000000000SRC003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B021 /* HomeAssistantServiceKitPlugin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA00000000000000000D001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000T001 /* HomeAssistantServiceKit */;
+			targetProxy = AA000000000000000000PR01 /* PBXContainerItemProxy */;
+		};
+		AA00000000000000000D002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000T001 /* HomeAssistantServiceKit */;
+			targetProxy = AA000000000000000000PR02 /* PBXContainerItemProxy */;
+		};
+		AA00000000000000000D003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000T002 /* HomeAssistantServiceKitUI */;
+			targetProxy = AA000000000000000000PR03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA00000000000000000C0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AA00000000000000000C0002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AA00000000000000000C0011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HomeAssistantServiceKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.HomeAssistantServiceKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA00000000000000000C0012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HomeAssistantServiceKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.HomeAssistantServiceKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA00000000000000000C0021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HomeAssistantServiceKitUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.HomeAssistantServiceKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA00000000000000000C0022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HomeAssistantServiceKitUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.HomeAssistantServiceKitUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA00000000000000000C0031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HomeAssistantServiceKitPlugin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.HomeAssistantServiceKitPlugin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = loopplugin;
+			};
+			name = Debug;
+		};
+		AA00000000000000000C0032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HomeAssistantServiceKitPlugin/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.loopkit.HomeAssistantServiceKitPlugin;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = loopplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0000000000000000CL0000 /* Build configuration list for PBXProject "HomeAssistantService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000C0001 /* Debug */,
+				AA00000000000000000C0002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000CL0001 /* Build configuration list for PBXNativeTarget "HomeAssistantServiceKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000C0011 /* Debug */,
+				AA00000000000000000C0012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000CL0002 /* Build configuration list for PBXNativeTarget "HomeAssistantServiceKitUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000C0021 /* Debug */,
+				AA00000000000000000C0022 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000CL0003 /* Build configuration list for PBXNativeTarget "HomeAssistantServiceKitPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000C0031 /* Debug */,
+				AA00000000000000000C0032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA000000000000000000PJ01 /* Project object */;
+}

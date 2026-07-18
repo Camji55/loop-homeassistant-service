@@ -1,0 +1,9 @@
+# The Home Assistant custom integration lives in its own repo:
+# https://github.com/Camji55/loop-homeassistant
+# A working copy may exist here locally but is not tracked.
+HomeAssistant/
+
+.DS_Store
+xcuserdata/
+build/
+DerivedData/
