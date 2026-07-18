@@ -16,6 +16,7 @@
 		AA000000000000000000B011 /* HomeAssistantService+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S011 /* HomeAssistantService+UI.swift */; };
 		AA000000000000000000B012 /* HomeAssistantServiceNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S012 /* HomeAssistantServiceNavigationController.swift */; };
 		AA000000000000000000B013 /* HomeAssistantSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000S013 /* HomeAssistantSettingsView.swift */; };
+		AA000000000000000000B017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000A001 /* Assets.xcassets */; };
 		AA000000000000000000B014 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F010 /* LoopKit.framework */; };
 		AA000000000000000000B015 /* LoopKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F011 /* LoopKitUI.framework */; };
 		AA000000000000000000B016 /* HomeAssistantServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA000000000000000000F001 /* HomeAssistantServiceKit.framework */; };
@@ -81,6 +82,7 @@
 		AA000000000000000000S011 /* HomeAssistantService+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeAssistantService+UI.swift"; sourceTree = "<group>"; };
 		AA000000000000000000S012 /* HomeAssistantServiceNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantServiceNavigationController.swift; sourceTree = "<group>"; };
 		AA000000000000000000S013 /* HomeAssistantSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantSettingsView.swift; sourceTree = "<group>"; };
+		AA000000000000000000A001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA000000000000000000S021 /* HomeAssistantServiceKitPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssistantServiceKitPlugin.swift; sourceTree = "<group>"; };
 		AA000000000000000000P001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA000000000000000000P002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +121,17 @@
 		};
 /* End PBXFrameworksBuildPhase section */
 
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000RES002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000000000000000000B017 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXGroup section */
 		AA00000000000000000G0000 = {
 			isa = PBXGroup;
@@ -150,6 +163,7 @@
 				AA000000000000000000S011 /* HomeAssistantService+UI.swift */,
 				AA000000000000000000S012 /* HomeAssistantServiceNavigationController.swift */,
 				AA000000000000000000S013 /* HomeAssistantSettingsView.swift */,
+				AA000000000000000000A001 /* Assets.xcassets */,
 				AA000000000000000000P002 /* Info.plist */,
 			);
 			path = HomeAssistantServiceKitUI;
@@ -208,6 +222,7 @@
 			buildPhases = (
 				AA0000000000000000SRC002 /* Sources */,
 				AA0000000000000000FRW002 /* Frameworks */,
+				AA0000000000000000RES002 /* Resources */,
 			);
 			buildRules = (
 			);

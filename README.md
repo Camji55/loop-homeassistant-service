@@ -103,6 +103,33 @@ no changes to Loop itself are needed.
 
 </details>
 
+## Updating the plugin
+
+The plugin lives in your workspace as a git submodule pinned to a specific
+commit, so it doesn't update on its own. To pull the latest version, run this
+from the root of your LoopWorkspace checkout:
+
+```bash
+git -C HomeAssistantService fetch origin
+git -C HomeAssistantService checkout origin/main
+```
+
+Then rebuild the **Loop (Workspace)** scheme.
+
+**Building with GitHub Actions ("browser build")?** After updating, commit
+the new submodule revision and push it to your fork so the Actions build uses
+it:
+
+```bash
+git add HomeAssistantService
+git commit -m "Update HomeAssistantService plugin"
+git push
+```
+
+Note that syncing your fork with upstream LoopWorkspace never changes the
+plugin version — the submodule stays on whatever commit you have committed
+until you update it as above.
+
 ## Setup
 
 1. In Home Assistant, install the

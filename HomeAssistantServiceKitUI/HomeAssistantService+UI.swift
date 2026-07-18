@@ -13,7 +13,7 @@ import HomeAssistantServiceKit
 extension HomeAssistantService: ServiceUI {
 
     public static var image: UIImage? {
-        return UIImage(systemName: "house.fill")
+        return UIImage(named: "home-assistant", in: Bundle(for: HomeAssistantServiceNavigationController.self), compatibleWith: nil)
     }
 
     public static func setupViewController(colorPalette: LoopUIColorPalette, pluginHost: PluginHost) -> SetupUIResult<ServiceViewController, ServiceUI> {
