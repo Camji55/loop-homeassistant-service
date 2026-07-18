@@ -26,8 +26,24 @@ Loop's sync anchors, so history backfills on its own.
 
 ## Adding this plugin to Loop
 
-These steps assume a standard
-[LoopWorkspace](https://github.com/LoopKit/LoopWorkspace) checkout.
+From the root of your
+[LoopWorkspace](https://github.com/LoopKit/LoopWorkspace) checkout, run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Camji55/loop-homeassistant-service/main/Scripts/install.sh | sh
+```
+
+That adds the submodule, registers the project in the workspace, and adds the
+plugin to the **Loop (Workspace)** build scheme. It's safe to re-run — each
+step is skipped if already done. Then build Loop as usual.
+
+**Building with GitHub Actions ("browser build")?** Run the script once on any
+machine with the repo cloned (or make the same edits via github.dev), then
+commit and push the changes to your fork — the Actions build picks them up
+automatically.
+
+<details>
+<summary><b>Manual steps</b> (what the script does)</summary>
 
 ### 1. Add the submodule
 
@@ -84,6 +100,8 @@ and add this `BuildActionEntry` next to the other service plugins:
 Build the **Loop (Workspace)** scheme as usual. Loop's existing
 `copy-plugins.sh` build phase finds the built `.loopplugin` and embeds it —
 no changes to Loop itself are needed.
+
+</details>
 
 ## Setup
 
