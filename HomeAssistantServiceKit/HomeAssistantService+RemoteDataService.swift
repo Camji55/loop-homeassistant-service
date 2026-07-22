@@ -7,10 +7,13 @@
 
 import Foundation
 import HealthKit
+import LoopAlgorithm
 import LoopKit
 
 extension HomeAssistantService: RemoteDataService {
-
+    
+    public var remoteDataServiceDelegate: (any LoopKit.RemoteDataServiceDelegate)? { get { nil } set {} }
+    
     public var glucoseDataLimit: Int? { return 500 }
     public var doseDataLimit: Int? { return 500 }
     public var carbDataLimit: Int? { return 500 }
@@ -19,20 +22,20 @@ extension HomeAssistantService: RemoteDataService {
     public var settingsDataLimit: Int? { return 100 }
     public var alertDataLimit: Int? { return 100 }
 
-    public func uploadGlucoseData(_ stored: [StoredGlucoseSample], completion: @escaping (Result<Bool, Error>) -> Void) {
-        upload(["glucose": stored.map { $0.homeAssistantRepresentation }], isEmpty: stored.isEmpty, completion: completion)
+    public func uploadGlucoseData(_ stored: [StoredGlucoseSample]) async throws {
+        try await upload(["glucose": stored.map { $0.homeAssistantRepresentation }], isEmpty: stored.isEmpty)
     }
 
-    public func uploadDoseData(created: [DoseEntry], deleted: [DoseEntry], completion: @escaping (Result<Bool, Error>) -> Void) {
-        upload(["doses": created.map { $0.homeAssistantRepresentation }], isEmpty: created.isEmpty, completion: completion)
+    public func uploadDoseData(created: [DoseEntry], deleted: [DoseEntry]) async throws {
+        try await upload(["doses": created.map { $0.homeAssistantRepresentation }], isEmpty: created.isEmpty)
     }
 
-    public func uploadCarbData(created: [SyncCarbObject], updated: [SyncCarbObject], deleted: [SyncCarbObject], completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func uploadCarbData(created: [SyncCarbObject], updated: [SyncCarbObject], deleted: [SyncCarbObject]) async throws {
         let carbs = (created + updated).map { $0.homeAssistantRepresentation }
-        upload(["carbs": carbs], isEmpty: carbs.isEmpty, completion: completion)
+        try await upload(["carbs": carbs], isEmpty: carbs.isEmpty)
     }
 
-    public func uploadPumpEventData(_ stored: [PersistedPumpEvent], completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func uploadPumpEventData(_ stored: [PersistedPumpEvent]) async throws {
         var payload: [String: Any] = ["pump_events": stored.map { $0.homeAssistantRepresentation }]
         var status: [String: Any] = [:]
         if let lastPrime = stored.filter({ $0.type == .prime }).max(by: { $0.date < $1.date }) {
@@ -44,67 +47,63 @@ extension HomeAssistantService: RemoteDataService {
         if !status.isEmpty {
             payload["status"] = status
         }
-        upload(payload, isEmpty: stored.isEmpty, completion: completion)
+        try await upload(payload, isEmpty: stored.isEmpty)
     }
 
-    public func uploadDosingDecisionData(_ stored: [StoredDosingDecision], completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func uploadDosingDecisionData(_ stored: [StoredDosingDecision]) async throws {
         guard let latest = stored.max(by: { $0.date < $1.date }) else {
-            completion(.success(true))
             return
         }
         var payload: [String: Any] = [:]
         payload["dosing_decision"] = latest.homeAssistantDosingDecision
         payload["status"] = latest.homeAssistantStatus
-        upload(payload, isEmpty: false, completion: completion)
+        try await upload(payload, isEmpty: false)
     }
 
-    public func uploadSettingsData(_ stored: [StoredSettings], completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func uploadSettingsData(_ stored: [StoredSettings]) async throws {
         guard let latest = stored.max(by: { $0.date < $1.date }) else {
-            completion(.success(true))
             return
         }
         let payload: [String: Any] = [
             "status": ["closed_loop": latest.dosingEnabled],
             "settings": latest.homeAssistantRepresentation,
         ]
-        upload(payload, isEmpty: false, completion: completion)
+        try await upload(payload, isEmpty: false)
     }
 
-    public func uploadTemporaryOverrideData(updated: [TemporaryScheduleOverride], deleted: [TemporaryScheduleOverride], completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func uploadTemporaryOverrideData(updated: [TemporaryScheduleOverride], deleted: [TemporaryScheduleOverride]) async throws {
         guard !updated.isEmpty || !deleted.isEmpty else {
-            completion(.success(true))
             return
         }
         let now = Date()
         let active = updated
             .filter { $0.startDate <= now && $0.actualEndDate > now }
             .max(by: { $0.startDate < $1.startDate })
-        upload(["override": active?.homeAssistantRepresentation ?? NSNull()], isEmpty: false, completion: completion)
+        try await upload(["override": active?.homeAssistantRepresentation ?? NSNull()], isEmpty: false)
     }
 
-    public func uploadAlertData(_ stored: [SyncAlertObject], completion: @escaping (Result<Bool, Error>) -> Void) {
-        upload(["alerts": stored.map { $0.homeAssistantRepresentation }], isEmpty: stored.isEmpty, completion: completion)
+    public func uploadAlertData(_ stored: [SyncAlertObject]) async throws{
+        try await upload(["alerts": stored.map { $0.homeAssistantRepresentation }], isEmpty: stored.isEmpty)
     }
 
-    public func uploadCgmEventData(_ stored: [PersistedCgmEvent], completion: @escaping (Result<Bool, Error>) -> Void) {
+    public func uploadCgmEventData(_ stored: [PersistedCgmEvent]) async throws {
         var payload: [String: Any] = ["cgm_events": stored.map { $0.homeAssistantRepresentation }]
         if let lastStart = stored.filter({ $0.type == .sensorStart }).max(by: { $0.date < $1.date }) {
             payload["status"] = ["last_sensor_start": HomeAssistantDateFormatter.string(from: lastStart.date)]
         }
-        upload(payload, isEmpty: stored.isEmpty, completion: completion)
+        try await upload(payload, isEmpty: stored.isEmpty)
     }
 
     public func remoteNotificationWasReceived(_ notification: [String: AnyObject]) async throws {
         // Home Assistant pushes data out of Loop only; remote commands are not supported.
     }
 
-    private func upload(_ payload: [String: Any], isEmpty: Bool, completion: @escaping (Result<Bool, Error>) -> Void) {
+    private func upload(_ payload: [String: Any], isEmpty: Bool) async throws {
         guard hasConfiguration, let webhookURL = webhookURL else {
-            completion(.success(true))
             return
         }
+        
         guard !isEmpty else {
-            completion(.success(true))
             return
         }
 
@@ -112,23 +111,25 @@ extension HomeAssistantService: RemoteDataService {
         payload["timestamp"] = HomeAssistantDateFormatter.string(from: Date())
         payload["source"] = Self.sourceName
 
-        client.post(payload: payload, to: webhookURL) { error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(true))
-            }
-        }
+//        try await withCheckedThrowingContinuation { continuation in
+//            client.post(payload: payload, to: webhookURL) { error in
+//                if let error = error {
+//                    continuation.resume(throwing: error)
+//                } else {
+//                    continuation.resume()
+//                }
+//            }
+//        }
     }
 }
 
-private extension HKQuantity {
+private extension LoopQuantity {
     var mgdl: Double {
         return doubleValue(for: .milligramsPerDeciliter)
     }
 }
 
-private let mgdlPerMinute = HKUnit.milligramsPerDeciliterPerMinute
+private let mgdlPerMinute = LoopUnit.milligramsPerDeciliterPerMinute
 
 extension StoredGlucoseSample {
     var homeAssistantRepresentation: [String: Any] {
@@ -238,7 +239,7 @@ extension StoredDosingDecision {
             }
             if let basalDeliveryState = pumpManagerStatus.basalDeliveryState {
                 switch basalDeliveryState {
-                case .suspended, .suspending:
+                case .suspended, .suspending, .pumpInoperable:
                     dict["pump_suspended"] = true
                     dict["basal_rate"] = 0.0
                 case .tempBasal(let dose):
@@ -328,7 +329,7 @@ extension StoredSettings {
             dict["insulin_sensitivity_schedule"] = schedule.between(start: startOfDay, end: endOfDay).map {
                 [
                     "start_minutes": minutes($0.startDate),
-                    "sensitivity_mgdl": HKQuantity(unit: unit, doubleValue: $0.value).mgdl,
+                    "sensitivity_mgdl": LoopQuantity(unit: unit, doubleValue: $0.value).mgdl,
                 ]
             }
         }
@@ -337,8 +338,8 @@ extension StoredSettings {
             dict["correction_range_schedule"] = schedule.between(start: startOfDay, end: endOfDay).map {
                 [
                     "start_minutes": minutes($0.startDate),
-                    "lower_mgdl": HKQuantity(unit: unit, doubleValue: $0.value.minValue).mgdl,
-                    "upper_mgdl": HKQuantity(unit: unit, doubleValue: $0.value.maxValue).mgdl,
+                    "lower_mgdl": LoopQuantity(unit: unit, doubleValue: $0.value.minValue).mgdl,
+                    "upper_mgdl": LoopQuantity(unit: unit, doubleValue: $0.value.maxValue).mgdl,
                 ]
             }
         }
@@ -361,8 +362,9 @@ extension TemporaryScheduleOverride {
         switch context {
         case .preMeal:
             dict["name"] = "Pre-Meal"
-        case .legacyWorkout:
-            dict["name"] = "Workout"
+        case .activity(let activity):
+            dict["name"] = activity.preset.name
+            dict["symbol"] = activity.preset.symbol
         case .preset(let preset):
             dict["name"] = preset.name
             dict["symbol"] = preset.symbol

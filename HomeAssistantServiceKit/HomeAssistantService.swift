@@ -10,8 +10,8 @@ import LoopKit
 import os.log
 
 public final class HomeAssistantService: Service {
-
-    public static let pluginIdentifier = "HomeAssistantService"
+    
+    public let pluginIdentifier = "HomeAssistantService"
 
     public static let localizedTitle = NSLocalizedString("Home Assistant", comment: "The title of the Home Assistant service")
 
